@@ -129,3 +129,12 @@
     border-spacing: 0;
   }
 }
+
+body {
+  font-family: 'GoogleSans';
+}
+
+@font-face {
+  font-family: 'GoogleSans';
+  src: url('../fonts/GoogleSans-Regular-v1.27.ttf') format('truetype');
+}

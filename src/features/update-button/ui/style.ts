@@ -3,6 +3,8 @@ import { colors, sizes } from '../../../shared/ui/styles/tokens.stylex';
 
 export const styles = stylex.create({
   teddyCategoryContainer: {
+    width: "1200px",
+    margin: '0 auto',
     display: 'flex',
     paddingLeft: '120px',
     color: colors.grey900,

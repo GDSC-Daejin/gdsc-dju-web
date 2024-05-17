@@ -1,8 +1,7 @@
+import WakatimeMain from "@/views/wakatime/ui/wakatime-main"
 
 const Wakatime = () => {
-  return (
-    <div>page</div>
-  )
+  return <WakatimeMain/>
 }
 
 export default Wakatime

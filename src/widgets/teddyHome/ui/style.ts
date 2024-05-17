@@ -10,7 +10,6 @@ export const styles = stylex.create({
     display: 'flex',
     flexDirection: 'column',
     gap: '24px',
-    width: '920px',
   },
 
   title: {

@@ -20,5 +20,6 @@ export const styles = stylex.create({
   imageContainer: {
     display: 'flex',
     gap: '24px',
+    height: '170px',
   },
 });

@@ -31,7 +31,8 @@ export const styles = stylex.create({
   },
 
   fontColor: {
-    color: colors.yellowCore,
+    // color: colors.yellowCore,
+    color: 'black',
   },
 
   subTitle: {

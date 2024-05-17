@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
-import '@/shared/styles/globals.css';
+import '@/shared/ui/styles/globals.css';
 import stylex from '@stylexjs/stylex';
 import React from 'react';
-import { Navbar } from '@/widgets/Navbar';
+import { Navbar } from '@/widgets/navbar';
 
 export const metadata: Metadata = {
   title: 'GDSC DJU',
@@ -19,7 +19,7 @@ export default function RootLayout({
     <html {...stylex.props(styles.html)} lang="en">
       <body {...stylex.props(styles.body)}>
         <Navbar />
-        <main {...stylex.props(styles.main)}>{children}</main>
+        <main>{children}</main>
       </body>
     </html>
   );
@@ -36,14 +36,5 @@ const styles = stylex.create({
   },
   body: {
     color: 'rgb(20, 22, 27)',
-  },
-  main: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontFamily: 'sans-serif',
-    padding: 16,
-    gap: 16,
   },
 });

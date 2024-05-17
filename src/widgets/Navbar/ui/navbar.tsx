@@ -1,21 +1,41 @@
 import React from 'react';
 import Link from 'next/link';
 import stylex from '@stylexjs/stylex';
+import Image from 'next/image';
+import Logo from '@/shared/ui/icons/GDSCLogo.svg';
 import { styles } from './styles';
 
 export const Navbar = () => {
   return (
     <header>
       <nav {...stylex.props(styles.navbar)}>
-        <div {...stylex.props(styles.logo)}>GDSC DJU</div>
-        <div {...stylex.props(styles.navmenu)}>
-          <Link href="/" {...stylex.props(styles.navitem)}>
-            Home
-          </Link>
-          <Link href="/teddy" {...stylex.props(styles.navitem)}>
-            Teddy
-          </Link>
-        </div>
+        <Link href="/" {...stylex.props(styles.category)}>
+          <Image src={Logo} alt="GDSC로고" />
+        </Link>
+        <Link
+          href="/wakatime"
+          {...stylex.props(styles.category, styles.categoryHover)}
+        >
+          <span>wakatime</span>
+        </Link>
+        <Link
+          href="/teddy"
+          {...stylex.props(styles.category, styles.categoryHover)}
+        >
+          <span>teddy</span>
+        </Link>
+        <Link
+          href="/members"
+          {...stylex.props(styles.category, styles.categoryHover)}
+        >
+          <span>members</span>
+        </Link>
+        <Link
+          href="/blog"
+          {...stylex.props(styles.category, styles.categoryHover)}
+        >
+          <span>blog</span>
+        </Link>
       </nav>
     </header>
   );

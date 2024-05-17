@@ -4,15 +4,12 @@ on:
   push:
     branches:
       - master
-    paths:
-      - '.github/workflows/gdsc-dju-admin-deploy-live.yml'
   pull_request:
     branches:
       - master
     types:
       - closed
-    paths:
-      - '.github/workflows/gdsc-dju-admin-deploy-live.yml'
+
 jobs:
   Deploy_Live_channel:
     if: github.event.pull_request.merged == true

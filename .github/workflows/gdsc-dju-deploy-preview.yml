@@ -8,8 +8,6 @@ on:
     branches-ignore:
       - master
       - develop
-    paths:
-      - '.github/workflows/gdsc-dju-deploy-preview.yml'
 jobs:
   Deploy_preview_channel:
     runs-on: ubuntu-latest

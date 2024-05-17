@@ -4,39 +4,22 @@ import stylex from '@stylexjs/stylex';
 import Image from 'next/image';
 import Logo from '@/shared/ui/icons/GDSCLogo.svg';
 import { styles } from './styles';
+import { ChangeNavBarColor } from '@/features/update-button/ui/change-navbarCategory';
 
 export const Navbar = () => {
+  const NavBarData = [
+    { name: ' wakatime', path: '/wakatime' },
+    { name: 'teddy', path: '/teddy' },
+    { name: 'members', path: '/members' },
+    { name: 'blog', path: '/blog' },
+  ];
+
   return (
-    <header>
-      <nav {...stylex.props(styles.navbar)}>
-        <Link href="/" {...stylex.props(styles.category)}>
-          <Image src={Logo} alt="GDSC로고" />
-        </Link>
-        <Link
-          href="/wakatime"
-          {...stylex.props(styles.category, styles.categoryHover)}
-        >
-          <span>wakatime</span>
-        </Link>
-        <Link
-          href="/teddy"
-          {...stylex.props(styles.category, styles.categoryHover)}
-        >
-          <span>teddy</span>
-        </Link>
-        <Link
-          href="/members"
-          {...stylex.props(styles.category, styles.categoryHover)}
-        >
-          <span>members</span>
-        </Link>
-        <Link
-          href="/blog"
-          {...stylex.props(styles.category, styles.categoryHover)}
-        >
-          <span>blog</span>
-        </Link>
-      </nav>
+    <header {...stylex.props(styles.navbar)}>
+      <Link href={'/'}>
+        <Image src={Logo} alt="GDSC로고" />
+      </Link>
+      <ChangeNavBarColor />
     </header>
   );
 };

@@ -8,6 +8,7 @@ export const styles = stylex.create({
     alignItems: 'center',
     gap: '40px',
     padding: 14,
+    width: '100%',
     color: colors.grey900,
   },
   category: {

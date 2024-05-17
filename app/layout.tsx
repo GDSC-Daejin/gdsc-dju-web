@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import '@/shared/ui/styles/globals.css';
 import stylex from '@stylexjs/stylex';
 import React from 'react';
-import { Navbar } from '@/widgets/navbar';
+import { Navbar } from '@/widgets/Navbar';
 
 export const metadata: Metadata = {
   title: 'GDSC DJU',

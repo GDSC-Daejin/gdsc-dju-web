@@ -7,16 +7,9 @@ import { styles } from './styles';
 import { ChangeNavBarColor } from '@/features/update-button/ui/change-navbarCategory';
 
 export const Navbar = () => {
-  const NavBarData = [
-    { name: ' wakatime', path: '/wakatime' },
-    { name: 'teddy', path: '/teddy' },
-    { name: 'members', path: '/members' },
-    { name: 'blog', path: '/blog' },
-  ];
-
   return (
     <header {...stylex.props(styles.navbar)}>
-      <Link href={'/'}>
+      <Link href="/">
         <Image src={Logo} alt="GDSC로고" />
       </Link>
       <ChangeNavBarColor />

@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
 import stylex from '@stylexjs/stylex';
@@ -5,7 +7,10 @@ import Image from 'next/image';
 import Logo from '@/shared/ui/icons/GDSCLogo.svg';
 import { styles } from './styles';
 
+
 export const Navbar = () => {
+
+
   return (
     <header>
       <nav {...stylex.props(styles.navbar)}>
@@ -16,13 +21,13 @@ export const Navbar = () => {
           href="/wakatime"
           {...stylex.props(styles.category, styles.categoryHover)}
         >
-          <span>wakatime</span>
+          <p>wakatime</p>
         </Link>
         <Link
           href="/teddy"
           {...stylex.props(styles.category, styles.categoryHover)}
         >
-          <span>teddy</span>
+          <span >teddy</span>
         </Link>
         <Link
           href="/members"

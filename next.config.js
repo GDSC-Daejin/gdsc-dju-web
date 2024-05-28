@@ -11,4 +11,5 @@ module.exports = {
   images: {
     domains: ['avatars.slack-edge.com'], // 이미지 호스트 추가
   },
+
 };

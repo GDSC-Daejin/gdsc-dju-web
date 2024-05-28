@@ -6,7 +6,6 @@ export const styles = stylex.create({
   container: {
     width: '1200px',
     margin: '0 auto',
-    paddingLeft: '120px',
     paddingTop: '115px',
   },
 });

@@ -9,6 +9,10 @@ module.exports = {
     rootDir: __dirname,
   })({}),
   images: {
-    domains: ['avatars.slack-edge.com'], // 이미지 호스트 추가
+    domains: [
+      'avatars.slack-edge.com',
+      'secure.gravatar.com',
+      'a.slack-edge.com',
+    ], // 이미지 호스트 추가
   },
 };

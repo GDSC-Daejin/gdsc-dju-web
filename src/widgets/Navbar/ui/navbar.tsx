@@ -9,8 +9,8 @@ import { ChangeNavBarColor } from '@/features/update-button/ui/change-navbarCate
 export const Navbar = () => {
   return (
     <header {...stylex.props(styles.navbar)}>
-      <Link href="/">
-        <Image src={Logo} alt="GDSC로고" />
+      <Link href="/" role="navigation" aria-label="홈으로 가기">
+        <Image src={Logo} alt="홈 GSDC 로고" />
       </Link>
       <ChangeNavBarColor />
     </header>

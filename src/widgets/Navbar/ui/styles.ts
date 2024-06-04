@@ -10,9 +10,11 @@ export const styles = stylex.create({
     padding: 14,
     color: colors.grey900,
   },
+
   category: {
     textDecoration: 'none',
   },
+
   categoryHover: {
     color: {
       default: 'black',

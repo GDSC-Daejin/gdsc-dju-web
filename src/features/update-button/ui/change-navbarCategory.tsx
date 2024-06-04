@@ -39,12 +39,16 @@ export const ChangeNavBarColor = () => {
     { name: 'blog', path: '/blog' },
   ];
 
+  const pathName = NavBarData.map((item) => item.name);
+
   return (
     <>
       {NavBarData.map((category, index) => (
         <Link
           href={category.path}
           key={index}
+          role="navigation"
+          aria-label={`${pathName}로 바로가기`}
           {...stylex.props(
             styles.category,
             styles.categoryHover,

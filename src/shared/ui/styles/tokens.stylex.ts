@@ -74,6 +74,7 @@ export const sizes = stylex.defineVars({
   title1_bold: '20px',
   title2_medium: '14px',
   body1_medium: '18px',
+  body1_medium_16: '16px',
   body2_regular: '16px',
   body3_regular: '14px',
   caption1_regular: '12px',

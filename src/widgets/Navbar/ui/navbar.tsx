@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import stylex from '@stylexjs/stylex';
@@ -8,11 +10,36 @@ import { ChangeNavBarColor } from '@/features/update-button/ui/change-navbarCate
 
 export const Navbar = () => {
   return (
-    <header {...stylex.props(styles.navbar)}>
-      <Link href="/">
-        <Image src={Logo} alt="GDSC로고" />
-      </Link>
-      <ChangeNavBarColor />
+    <header>
+      <nav {...stylex.props(styles.navbar)}>
+        <Link href="/" {...stylex.props(styles.category)}>
+          <Image src={Logo} alt="GDSC로고" />
+        </Link>
+        <Link
+          href="/wakatime"
+          {...stylex.props(styles.category, styles.categoryHover)}
+        >
+          <p>wakatime</p>
+        </Link>
+        <Link
+          href="/teddy"
+          {...stylex.props(styles.category, styles.categoryHover)}
+        >
+          <span>teddy</span>
+        </Link>
+        <Link
+          href="/members"
+          {...stylex.props(styles.category, styles.categoryHover)}
+        >
+          <span>members</span>
+        </Link>
+        <Link
+          href="/blog"
+          {...stylex.props(styles.category, styles.categoryHover)}
+        >
+          <span>blog</span>
+        </Link>
+      </nav>
     </header>
   );
 };

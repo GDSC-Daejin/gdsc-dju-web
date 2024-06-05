@@ -31,7 +31,8 @@ export const styles = stylex.create({
   },
 
   content: {
-    fontSize: sizes.body1_medium,
+    fontSize: sizes.body1_medium_16,
+    lineHeight: '130%',
   },
 
   contentsContainer: {

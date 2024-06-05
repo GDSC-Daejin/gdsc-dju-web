@@ -4,7 +4,8 @@ import stylex from '@stylexjs/stylex';
 
 export const styles = stylex.create({
   container: {
-    paddingLeft: '120px',
+    width: '1200px',
+    margin: '0 auto',
     paddingTop: '115px',
   },
 });

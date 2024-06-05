@@ -1,0 +1,78 @@
+name: Deploy to GDSC DJU Admin Live Channel
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+    types:
+      - closed
+
+jobs:
+  Deploy_Live_channel:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    environment:
+      name: GDSC DJU Production
+      url: https://preview.gdscdju.dev
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: 캐시 폴더를 가져오고 있어요.
+        id: yarn-cache-dir-path
+        run: echo "dir=$(cd client && yarn config get cacheFolder)" >> $GITHUB_ENV
+
+      - name: 캐시 의존성을 설정하고 있어요.
+        uses: actions/cache@v3
+        with:
+          path: ~/.yarn
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Node 버전/캐싱여부를 설정하고 있어요.
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: yarn
+          cache-dependency-path: ./yarn.lock
+          registry-url: 'https://registry.yarnpkg.com'
+
+      - name: Setting .env
+        run: |
+          echo "FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }}" >> .env
+          echo "FIREBASE_AUTH_DOMAIN=${{ secrets.FIREBASE_AUTH_DOMAIN }}" >> .env
+          echo "FIREBASE_DATABASE_URL=${{ secrets.FIREBASE_DATABASE_URL }}" >> .env
+          echo "FIREBASE_PROJECT_ID=${{ secrets.FIREBASE_PROJECT_ID }}" >> .env
+          echo "FIREBASE_STORAGE_BUCKET=${{ secrets.FIREBASE_STORAGE_BUCKET }}" >> .env
+          echo "FIREBASE_MESSAGING_SENDER_ID=${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}" >> .env
+          echo "FIREBASE_APPID=${{ secrets.FIREBASE_APPID }}" >> .env
+          echo "FIREBASE_MEASUREMENT_ID=${{ secrets.FIREBASE_MEASUREMENT_ID }}" >> .env
+          cat .env
+      - name: install package
+        run: yarn install
+      - name: Project Build
+        run: yarn build
+      - uses: HyeokE/action-hosting-deploy@main
+        id: run_firebase_deploy
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_GDSC_DJU }}'
+          channelId: live
+          projectId: gdsc-dju
+          target: gdsc-dju-preview
+      - name: Discord Message Notify
+        uses: appleboy/discord-action@0.0.3
+        with:
+          webhook_id: ${{ secrets.DISCORD_ADMIN_WEBHOOK_ID }}
+          webhook_token: ${{ secrets.DISCORD_ADMIN_WEBHOOK_TOKEN }}
+          color: '#4285f4'
+          args: |
+            gdsc-dju-admin has been deployed to Live channel
+            `Contributor` ${{github.actor}}
+            `Event Status` ${{github.event_name}}
+            `URL` https://admin.gdscdju.dev
+            `Build Time` ${{steps.run_firebase_deploy.outputs.expire_time}}

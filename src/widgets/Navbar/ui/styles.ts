@@ -28,5 +28,8 @@ export const styles = stylex.create({
       ':hover': 'solid',
     },
   },
+  spanDark: {
+    color: 'white', // Span color in dark mode
+  },
 
 });

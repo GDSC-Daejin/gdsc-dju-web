@@ -6,11 +6,12 @@ import stylex from '@stylexjs/stylex';
 import Image from 'next/image';
 import Logo from '@/shared/ui/icons/GDSCLogo.svg';
 import { styles } from './styles';
+import { useTheme } from 'next-themes';
 
 
 export const Navbar = () => {
-
-
+  const { theme } = useTheme();
+  const spanClass = theme === 'dark' ? styles.spanDark : null;
   return (
     <header>
       <nav {...stylex.props(styles.navbar)}>
@@ -21,25 +22,25 @@ export const Navbar = () => {
           href="/wakatime"
           {...stylex.props(styles.category, styles.categoryHover)}
         >
-          <p>wakatime</p>
+          <span {...stylex.props(spanClass)}>wakatime</span>
         </Link>
         <Link
           href="/teddy"
           {...stylex.props(styles.category, styles.categoryHover)}
         >
-          <span >teddy</span>
+          <span {...stylex.props(spanClass)}>teddy</span>
         </Link>
         <Link
           href="/members"
           {...stylex.props(styles.category, styles.categoryHover)}
         >
-          <span>members</span>
+          <span {...stylex.props(spanClass)}>members</span>
         </Link>
         <Link
           href="/blog"
           {...stylex.props(styles.category, styles.categoryHover)}
         >
-          <span>blog</span>
+          <span {...stylex.props(spanClass)}>blog</span>
         </Link>
       </nav>
     </header>

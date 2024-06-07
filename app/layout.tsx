@@ -47,5 +47,11 @@ const styles = stylex.create({
     backgroundColor: "black",
     color: 'white',
   },
+  span: {
+    color: 'rgb(20, 22, 27)', // Default span color in light mode
+  },
+  spanDark: {
+    color: 'white', // Span color in dark mode
+  },
 
 });

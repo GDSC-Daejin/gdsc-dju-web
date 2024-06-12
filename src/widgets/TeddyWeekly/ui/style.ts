@@ -7,7 +7,7 @@ import {
 
 export const styles = stylex.create({
   container: {
-    width: "1200px",
+    width: '1200px',
     margin: '0 auto',
     paddingTop: '215px',
   },

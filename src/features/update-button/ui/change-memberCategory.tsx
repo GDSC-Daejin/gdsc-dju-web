@@ -4,6 +4,7 @@ import * as stylex from '@stylexjs/stylex';
 import { colors, sizes } from '../../../shared/ui/styles/tokens.stylex';
 import { useState } from 'react';
 import Link from 'next/link';
+import { useTheme } from 'next-themes';
 
 export const styles = stylex.create({
   container: {
@@ -36,9 +37,25 @@ export const styles = stylex.create({
     backgroundColor: colors.redCore,
     color: colors.grey50,
   },
+  bgDark: {
+    backgroundColor: colors.grey700,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: '27px',
+    width: '78px',
+    textDecoration: 'none',
+    height: '30px',
+    cursor: 'pointer',
+    fontSize: sizes.title2_medium,
+    color: colors.white,
+  },
 });
 
 export const MemberCategory = () => {
+  const { theme } = useTheme();
+  const bgColor = theme === 'dark' ? styles.bgDark : styles.category;
+
   const [isClick, setIsClick] = useState('');
 
   const memberCategory = [
@@ -63,7 +80,7 @@ export const MemberCategory = () => {
             <li
               onClick={() => setIsClick(member.name)}
               {...stylex.props(
-                styles.category,
+                bgColor,
                 isClick === member.name ? styles.isActive : undefined,
               )}
             >

@@ -11,24 +11,26 @@ export const styles = stylex.create({
     paddingTop: '32px',
     display: 'flex',
     gap: '24px',
-    width: '1200px',
     justifyContent: 'flex-start',
+    width: '90%',
   },
 
   categoryContainer: {
+    display: 'flex',
     textDecoration: 'none',
+    width: '8%',
   },
 
   category: {
+    width: '100%',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: '27px',
-    width: '78px',
     textDecoration: 'none',
     height: '30px',
     cursor: 'pointer',
-    fontSize: sizes.title2_medium,
+    fontSize: '90%',
     backgroundColor: colors.grey200,
     color: colors.grey900,
   },
@@ -37,13 +39,14 @@ export const styles = stylex.create({
     backgroundColor: colors.redCore,
     color: colors.grey50,
   },
+
   bgDark: {
     backgroundColor: colors.grey700,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: '27px',
-    width: '78px',
+    width: '100%',
     textDecoration: 'none',
     height: '30px',
     cursor: 'pointer',
@@ -67,7 +70,7 @@ export const MemberCategory = () => {
     { name: 'Beginner', path: '/beginner' },
     { name: 'Alumnight', path: '/alumnight' },
   ];
-
+  
   return (
     <>
       <ul {...stylex.props(styles.container)}>

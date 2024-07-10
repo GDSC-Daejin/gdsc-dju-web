@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { styles } from './style';
 import stylex from '@stylexjs/stylex';
 import Icon from '@/shared/ui/icons/defaultImg.svg';
+import { MemberCategory } from '@/features/update-button';
 
 export const AlumNightPage = async () => {
   const data = await GetMemberData('members');
@@ -17,26 +18,33 @@ export const AlumNightPage = async () => {
   });
 
   return (
-    <main {...stylex.props(styles.container)}>
-      <p {...stylex.props(styles.textStyle)}>AlumNight</p>
-      <ul {...stylex.props(styles.imageContainer)}>
-        {AlumNightMembers.map((member: MemberType) => (
-          <li key={member.SlackID}>
-            <Image
-              src={member.Image512}
-              alt={member.Nickname}
-              width={282}
-              height={312}
-              {...stylex.props(styles.image)}
-            ></Image>
-          </li>
-        ))}
-        {dummyMember.map((_, index) => (
-          <div key={index} {...stylex.props(styles.dummyData, styles.image)}>
-            <Image src={Icon} alt="기본 이미지"></Image>
-          </div>
-        ))}
-      </ul>
-    </main>
+    <div {...stylex.props(styles.container)}>
+      <MemberCategory />
+      <main {...stylex.props(styles.mainContainer)}>
+        <p {...stylex.props(styles.textStyle)}>AlumNight</p>
+        <ul {...stylex.props(styles.imageContainer)}>
+          {AlumNightMembers.map((member: MemberType) => (
+            <li key={member.SlackID}>
+              <Image
+                src={member.Image512}
+                alt={member.Nickname}
+                width={282}
+                height={312}
+                {...stylex.props(styles.image)}
+              ></Image>
+            </li>
+          ))}
+          {dummyMember.map((_, index) => (
+            <div key={index} {...stylex.props(styles.dummyData)}>
+              <Image
+                src={Icon}
+                alt="기본 이미지"
+                {...stylex.props(styles.image)}
+              />
+            </div>
+          ))}
+        </ul>
+      </main>
+    </div>
   );
 };

@@ -1,4 +1,3 @@
-import { MemberCategory } from '@/features/update-button/index';
 import type { Metadata } from 'next';
 import * as stylex from '@stylexjs/stylex';
 
@@ -24,8 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <div {...stylex.props(styles.container)}>
-      <MemberCategory />
-      <main>{children}</main>
+      <main {...stylex.props(styles.container)}>{children}</main>
     </div>
   );
 }

@@ -3,10 +3,14 @@
 import WakatimeMain from "@/views/wakatime/ui/wakatime-main"
 import { styles } from "./style"
 import stylex from '@stylexjs/stylex';
+import { useTheme } from 'next-themes';
 
 // <WakatimeMain/> 에 나중에 병합
 
 const Wakatime = () => {
+
+  const { theme } = useTheme();
+  const spanClass = theme === 'dark' ? styles.spanDark : null;
 
   const Profile = [
     {
@@ -24,7 +28,7 @@ const Wakatime = () => {
     <div {...stylex.props(styles.wakatimeCategoryContainer)}>
       <div {...stylex.props(styles.wakatimeMonth)}>
         <p>🔚</p>
-        <p>&#160;&#160;April&#160;&#160;</p>
+        <span {...stylex.props(spanClass)}>&#160;&#160;April&#160;&#160;</span>
         <p>🔜</p>
       </div>
 
@@ -52,12 +56,12 @@ const Wakatime = () => {
       {Profile.map((item, index) => (
         <div key={index} {...stylex.props(styles.wakatimeUserIntroBox)}>
           <div {...stylex.props(styles.wakatimeUserIntroBoxText)}>
-            <p {...stylex.props(styles.wakatimeUserIntroTextP)}>{index + 1}</p>
-            <p>{item.name}</p>
+            <span  {...stylex.props(styles.wakatimeUserIntroTextP, spanClass)}>{index + 1}</span>
+            <span {...stylex.props(spanClass)}>{item.name}</span>
           </div>
           <div {...stylex.props(styles.wakatimeUserIntroBoxText)}>
-            <p>{item.daily}</p>
-            <p {...stylex.props(styles.wakatimeUserIntroBoxTextTime)}>{item.time}</p>
+            <span {...stylex.props(spanClass)}>{item.daily}</span>
+            <span {...stylex.props(styles.wakatimeUserIntroBoxTextTime, spanClass)}>{item.time}</span>
             <button {...stylex.props(styles.wakatimeUserIntroBoxButton)}>Github</button>
           </div>
         </div>

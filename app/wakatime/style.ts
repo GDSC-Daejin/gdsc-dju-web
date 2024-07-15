@@ -56,7 +56,7 @@ export const styles = stylex.create({
   },
   wakatimeUserIntroBoxText: {
     display: "flex",
-    color: "white",
+    color: "black",
   },
   wakatimeUserIntroBoxTextTime: {
     padding: "0px 100px 0px 200px",
@@ -77,6 +77,9 @@ export const styles = stylex.create({
   },
   wakatimeUserIntroTextTime: {
     padding: "0px 200px",
-  }
+  },
+  spanDark: {
+    color: 'white', // Span color in dark mode
+  },
 
 });
